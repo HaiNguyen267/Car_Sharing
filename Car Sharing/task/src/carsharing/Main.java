@@ -1,7 +1,7 @@
 package carsharing;
 
 
-import carsharing.menu.Menu;
+import carsharing.service.MainMenu;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,8 +11,8 @@ public class Main {
         try {
             String dbName = parseDBName(args);
             DatabaseManager.initDatabase(dbName);
-            Menu menu = new Menu();
-            menu.runMenu();
+            MainMenu.getInstance().runMainMenu();
+            DatabaseManager.closeConnection();
         } catch (Exception e) {
             e.printStackTrace();
         }
